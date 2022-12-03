@@ -3,14 +3,14 @@ import axios from 'axios';
 import AddArticle from '../components/AddArticle';
 import { AuthContext } from '../context/auth.context'
 import { useContext } from 'react';
-import articleList from '../articleList.json';
+
 
 // const API_URL = "https://pink-doubtful-hen.cyclic.app";
 
 const ArticleListPage = () => {
 
   const [articles, setArticles] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+
   const { theme } = useContext(AuthContext);
 
 

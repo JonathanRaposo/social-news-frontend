@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../context/auth.context';
-import logos from '../assets/images/logos.png';
+
 
 //backend API
 const API_URL = "https://pink-doubtful-hen.cyclic.app";

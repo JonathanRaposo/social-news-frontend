@@ -10,7 +10,7 @@ const API_URL = "https://pink-doubtful-hen.cyclic.app";
 const Feed = ({ article, refreshArticles }) => {
     const [content, setContent] = useState('');
     const { theme } = useContext(AuthContext);
-    const [comment, setComment] = useState([]);
+
 
 
 
