@@ -55,10 +55,14 @@ const Feed = ({ article, refreshArticles }) => {
                 <h3>{article?.name}</h3>
             </a>
 
-            {/* {article.comments.forEach((comment) => {
-                <p>{comment.content}</p>
-            })} */}
+            <div className="comments-wrapper">
+                {article.comments.map((comment) => {
+                    return (
+                        <div>{comment.content}</div>
+                    )
+                })}
 
+            </div>
 
             <h5>Comments</h5>
             <form onSubmit={handleSubmit}>
@@ -73,7 +77,7 @@ const Feed = ({ article, refreshArticles }) => {
                     onChange={(e) => setContent(e.target.value)}
                 />
 
-                <button type="submit" className={theme}>Add</button>
+                <button type="submit" className={theme}>Reply</button>
             </form>
 
         </div>
