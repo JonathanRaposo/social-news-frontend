@@ -1,13 +1,812 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  ;
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.App {
+  text-align: center;
+
+}
+
+
+
+/* Theme styles */
+
+.App.light {
+  background-color: #fff;
+}
+
+.App.dark {
+  background-color: #000;
+}
+
+.App.bisque {
+  background-color: #f5eddd;
+  ;
+}
+
+.light {
+  background-color: #fff;
+}
+
+.light p,
+.light a,
+.light li,
+.light ul,
+.light h3 {
+  color: #000;
+}
+
+.dark {
+  background-color: #000000e2;
+  color: #fff;
+}
+
+.Navbar.dark p,
+.Navbar.dark a,
+.Navbar.dark li,
+.Navbar.dark ul,
+.Navbar.dark h3 {
+  color: #fff;
+}
+
+.dark p,
+.dark a,
+.dark ul,
+.dark li,
+.dark h3,
+.dark h2 {
+  color: #fff;
+}
+
+.bisque {
+  background-color: #f5eddd;
+}
+
+.bisque p,
+.bisque a,
+.bisque ul,
+.bisque li,
+.bisque h3,
+.bisque h2 {
+  color: #000;
+}
+
+.Navbar.bisque p,
+.Navbar.bisque a,
+.Navbar.bisque li,
+.Navbar.bisque ul,
+.Navbar.bisque h3 {
+  color: #000;
+}
+
+/* end of theme styles */
+
+
+/* Navbar styles */
+.Navbar {
+  width: 100%;
+  border: 2px solid rgb(186, 186, 186);
+  box-shadow: 1px 1px 8px lightgrey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+
+
+}
+
+.Navbar img {
+  max-width: 110px;
+}
+
+.Navbar img::before {
+  content: ' My Urls';
+
+}
+
+/* Navbar styles */
+.Navbar ul {
+  margin-right: 80px
+}
+
+.Navbar ul li {
+  list-style-type: none;
+  display: inline-block;
+  width: 100px;
+  padding: 5px;
+  margin-right: 8px;
+  border-radius: 12px;
+  transition: background-color.15s;
+}
+
+.Navbar ul li:hover {
+  background-color: #084b08;
+
+
+
+}
+
+.Navbar ul li a {
+  text-decoration: none;
+}
+
+.Navbar ul li a:hover {
+  color: #fff;
+}
+
+.Navbar ul li {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+
+}
+
+select {
+  border-radius: 5px;
+  padding: 1px 2px;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color .15s;
+}
+
+select:hover {
+  background-color: #084b08;
+  color: #fff;
+  cursor: pointer;
+}
+
+.Navbar ul span {
+  color: #e7132f;
+  font-weight: 500;
+  font-size: 18px;
+  display: block;
+  text-align: end;
+  margin-right: 28px;
+}
+
+.Navbar ul li .logout-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16.5px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  transition: background-color .15s;
+
+}
+
+.Navbar ul li .logout-btn.dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.Navbar ul li .logout-btn.bisque {
+  background-color: #f5eddd;
+  color: #000;
+}
+
+.Navbar ul li .logout-btn:hover {
+  background-color: #084b08;
+  color: #fff;
+}
+
+/*  end of Navbar Styles */
+
+
+
+
+
+.ArticleListPage {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 30px auto;
+}
+
+/* AddArticle styles */
+.AddArticle,
+.MyArticleDetailsPage,
+.Feed {
+  max-width: 400px;
+  padding: 6px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px lightgrey;
+}
+
+.AddArticle .no-image-para {
+  text-align: center;
+  color: #084b08;
+  font-weight: 500;
+}
+
+.AddArticle h3 {
+  text-align: justify;
+  padding: 8px;
+}
+
+.AddArticle a {
+  text-decoration: none;
+  color: #000;
+  transition: color .15s
+}
+
+.AddArticle h3:hover {
+  color: #095a09;
+}
+
+.AddArticle p,
+.MyArticleDetailsPage p {
+  text-align: justify;
+  padding: 8px;
+
+}
+
+/* MyArticleDetailsPage styles */
+.MyArticleDetailsPage {
+  margin: 100px auto;
+  padding: 20px;
+}
+
+.MyArticleDetailsPage .back-btn {
+  background-color: #084b08;
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 20px;
+  transition: background-color .15s;
+}
+
+.MyArticleDetailsPage .back-btn:hover {
+  background-color: #054005;
+
+}
+
+.MyArticleDetailsPage textarea,
+.Feed textarea {
+  padding: 4px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 3px 8px grey;
+  outline: none;
+}
+
+.MyArticleDetailsPage button,
+.Feed button {
+  display: block;
+  width: 80px;
+  border: none;
+  border-radius: 20px;
+  padding: 3px 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  background-color: #095a09;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color .15s;
+
+}
+
+.MyArticleDetailsPage button:hover {
+  background-color: #084b08;
+
+}
+
+.Feed button:hover {
+  background-color: #084b08;
+
+}
+
+/* MyArticleDetailsPage styles */
+
+
+/* feed styles */
+.FeedListPage {
+  margin-top: 100px;
+  margin-left: 100px;
+}
+
+.FeedListPage .my-feed-heading {
+  max-width: 300px;
+  text-align: left;
+  margin-left: 10px;
+
+}
+
+.Feed p {
+  text-align: justify;
+  padding: 8px;
+}
+
+.Feed img {
+  width: 90px;
+  height: 90px;
+
+  border-radius: 50%;
+}
+
+img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+p {
+  text-align: left;
+}
+
+h2 {
+  margin: 0;
+}
+
+.save-btn {
+  width: 80px;
+  border: none;
+  border-radius: 20px;
+  padding: 3px 10px;
+  background-color: #095a09;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  transition: background-color .15s;
+}
+
+.save-btn.bisque {
+  color: #fff;
+}
+
+.save-btn.light {
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #084b08;
+  color: #fff;
+}
+
+
+.save-btn:disabled {
+  background-color: gainsboro;
+  color: #095a09;
+}
+
+/* end of AddArticle style */
+
+
+/* sign up/login form styles */
+
+.SignupPage,
+.LoginPage {
+  width: 430px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0px 2px 8px lightgrey;
+  border-radius: 6px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  display: inline-block;
+}
+
+.SignupPage form,
+.LoginPage form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignupPage button,
+.LoginPage button {
+  width: 220px;
+  margin: 15px auto;
+  padding: 6px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  border-radius: 6px;
+  display: block;
+  color: #fff;
+  background-color: #084b08;
+  transition: background-color .15s;
+
+}
+
+.SignupPage button:hover {
+  background-color: #063d06;
+}
+
+.LoginPage button:hover {
+  background-color: #063d06;
+}
+
+label {
+  display: block;
+  width: 200px;
+}
+
+.error-message {
+  text-align: center;
+  color: #ee0231
+}
+
+input {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid rgb(133, 133, 133);
+  border-radius: 6px;
+  margin: 10px;
+  outline: none;
+  transition: border .15s
+}
+
+input:hover {
+  border: 1px solid #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+.SignupPage a,
+.LoginPage a {
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: color.15s;
+  color: #000;
+}
+
+.SignupPage .login-link:hover {
+  color: #26b1df;
+}
+
+.LoginPage a:hover {
+  color: #26b1df;
+}
+
+.SignupPage .back-link {
+  display: block;
+  color: #000;
+}
+
+/* End of sign up/login styles */
+
+
+/* about page */
+
+.AboutPage .hero {
+  width: 100%;
+  padding: 250px 0;
+  background-image: url('./assets/images/yellow-background.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.AboutPage h2 {
+  max-width: 150px;
+  padding: 10px;
+  border-radius: 20px;
+  background: purple;
+  margin: 0 auto;
+}
+
+.AboutPage.bisque h2 {
+  color: #fff;
+}
+
+.AboutPage.light h2 {
+  color: #fff;
+}
+
+.AboutPage .feature-wrapper {
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 150px auto;
+}
+
+.AboutPage>.feature-wrapper>.photo-wrapper img {
+  width: 400px;
+}
+
+.AboutPage>.feature-wrapper>.para-wrapper p {
+  text-align: left;
+  line-height: 2em;
+  letter-spacing: 2px;
+}
+
+
+
+/* end about page */
+
+/* Home Page Styles */
+
+/* section-1 styles */
+.HomePage>.section-1 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+.get-started-wrapper {
+  max-width: 500px;
+  padding: 15px;
+  margin: 10px;
+  text-align: left;
+}
+
+.get-started-wrapper h1 {
+  font-size: 35px;
+}
+
+.HomePage .see-more-link {
+  margin-top: 50px;
+  width: 150px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e7132f;
+  padding: 10px 30px;
+  font-weight: 700;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  transition: background-color .15s;
+}
+
+.HomePage .see-more-link:hover {
+  background-color: #b60d24;
+
+}
+
+.image-wrapper {
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 3px 12px grey;
+}
+
+.image-wrapper img {
+  width: 700px;
+  border: none;
+  /* height: 400px; */
+
+}
+
+/* end of section-1 styles */
+
+/* section 2 styles */
+.section-2 {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-2>.columns-wrapper {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-2>.columns-wrapper>.column {
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  transition: border-bottom .15s;
+}
+
+.section-2>.columns-wrapper>.column :nth-child(1) {
+  width: 250px;
+}
+
+.section-2>.columns-wrapper>.column :nth-child(2) {
+  font-size: 1.8em;
+  font-weight: 900;
+  text-align: center;
+  transition: letter-spacing .15s;
+
+
+}
+
+.section-2>.columns-wrapper>.column :nth-child(2):hover {
+  letter-spacing: 1px;
+
+
+}
+
+.section-2>.columns-wrapper>.column :nth-child(3) {
+  letter-spacing: 2px;
+  text-align: center;
+
+
+}
+
+/*  my article page styles  */
+
+.MyArticleListPage {
+  margin-top: 50px;
+
+}
+
+.MyArticleListPage>.search-bar {
+
+  width: 650px;
+  padding: 12px;
+  margin-right: 50px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+}
+
+.search-bar.dark {
+  background-color: #fff;
+
+}
+
+/* my ArticleListPage button styles */
+.MyArticleListPage button {
+  margin: 10px;
+  border: none;
+  width: 80px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+}
+
+.show-btn-1 {
+  display: inline-block;
+}
+
+.show-btn-2 {
+  display: inline-block;
+}
+
+.hide-btn {
+  display: none;
+}
+
+.article-wrapper {
+  display: flex;
+  justify-content: start;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px grey;
+
+}
+
+.article-wrapper img {
+  width: 250px
+}
+
+.article-wrapper h3 {
+  max-width: 500px;
+  padding: 10px;
+  margin-left: 5px;
+  text-align: left;
+  transition: background-color .15s;
+}
+
+.article-wrapper h3:hover {
+  color: #095a09;
+}
+
+.article-wrapper .button-wrapper {
+  padding: 16px;
+  margin-left: 10px;
+
+}
+
+.article-wrapper>.button-wrapper>.each-button {
+  padding: 10px;
+
+}
+
+.article-wrapper>.button-wrapper>.each-button button {
+  border: none;
+  font-size: 18px;
+  transition: transform .15s;
+
+
+}
+
+.article-wrapper>.button-wrapper>.each-button>.delete-btn:hover {
+  transform: scale(1.8)
+}
+
+
+
+/* footer styles */
+
+footer {
+  width: 100%;
+  border: 2px solid rgb(186, 186, 186);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* position: absolute;
+  bottom: 0;
+  height: 100px; */
+  /* position: fixed;
+  bottom: 0;
+  height: 100px; */
+
+
+}
+
+footer ul {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+footer ul li {
+  display: inline-block;
+  padding: 10px;
+  width: 75px;
+  font-weight: 500;
+  transition: text-decoration .15s;
+
+}
+
+footer ul li:hover {
+  text-decoration: underline;
+}
+
+footer ul li a {
+  color: #1a1a1a;
+}
+
+footer ul .social-media-icons-wrapper {
+  margin-top: 10px;
+}
+
+footer ul .social-media-icons-wrapper .icon {
+  font-size: 2em;
+  color: #06066f;
+  padding: 10px;
+  margin-right: 30px;
+  transition: background-color .15s;
+}
+
+footer ul .social-media-icons-wrapper .icon:hover {
+  color: #1717ce;
+}
+
+footer ul .social-media-icons-wrapper p {
+  text-align: center;
+}
+
+/* media query */
+
+
+@media only screen and (max-width: 730px) {
+  .Navbar img {
+    display: none;
+  }
 }
