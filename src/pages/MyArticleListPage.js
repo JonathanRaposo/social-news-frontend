@@ -46,11 +46,9 @@ const MyArticleListPage = () => {
         setSearchTerm(e.target.value)
     }
     const filteredArticle = myArticles.filter((value) => {
-        if (searchTerm === '') {
-            return value;
-        } else if (value.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-            return value;
-        }
+        return searchTerm === '' || value.name.toLowerCase().includes(searchTerm.toLowerCase());
+
+
     })
 
     //  calling backen API to sort articles in descending order
