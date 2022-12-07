@@ -7,7 +7,7 @@ import bookIcon from '../assets/images/bookstack.png';
 import { useState } from 'react';
 
 //backend API 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://pink-doubtful-hen.cyclic.app";
 
 
 
