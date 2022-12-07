@@ -5,13 +5,14 @@ import { AuthContext } from '../context/auth.context';
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 const MyArticleDetailsPage = () => {
     const [article, setArticle] = useState({});
     const { theme, } = useContext(AuthContext);
     const [content, setContent] = useState('');
+
 
     const { articleId } = useParams();
     const storedToken = localStorage.getItem('authToken');
@@ -43,7 +44,7 @@ const MyArticleDetailsPage = () => {
         e.preventDefault()
 
         const requestBody = {
-            user: article?.user?._id,
+            author: article?.user?._id,
             content: content,
             article: articleId
         }
@@ -57,6 +58,7 @@ const MyArticleDetailsPage = () => {
             .then((response) => {
                 console.log('comment created in database: ', response);
                 setContent('');
+
 
             })
             .catch((error) => {
@@ -73,21 +75,19 @@ const MyArticleDetailsPage = () => {
             </a>
             <p >{article?.description}</p>
 
-            <h5>Add comment</h5>
+            <h5>comment</h5>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor='content'></label>
-                <textarea
+
+                <input
                     className={theme}
                     name="content"
                     id="content"
-                    cols="30"
-                    rows="5"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
 
-                <button type="submit" className={theme}>Add</button>
+                <button type="submit" className={theme}>Post</button>
             </form>
         </div>
     );

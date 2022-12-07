@@ -22,7 +22,7 @@ const Navbar = () => {
 
       </Link>
       <ul>
-        <span>{user && user.lastName}</span>
+        <span>{user && user.firstName}</span>
 
         {isLoggedIn && (
           <div>
@@ -41,6 +41,13 @@ const Navbar = () => {
                 My articles
               </Link>
             </li>
+            <li>
+              <Link to="/profile">
+                Account
+              </Link>
+            </li>
+
+
 
             <li>
               <button onClick={logOutUser} className={"logout-btn " + theme}>Log out</button>

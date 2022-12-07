@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'https://pink-doubtful-hen.cyclic.app';
+const API_URL = 'http://localhost:5005';
 
 const AddArticle = ({ oneArticle }) => {
   const { theme, user } = useContext(AuthContext)
@@ -26,7 +26,7 @@ const AddArticle = ({ oneArticle }) => {
       url,
       name,
       description,
-      userId: user._id
+      user: user._id
 
     }
     console.log("body from client:", requestBody);

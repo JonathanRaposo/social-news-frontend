@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from "./pages/SignupPage";
 import AboutPage from "./pages/AboutPage";
+import ProfilePage from './pages/ProfilePage';
 import ArticleListPage from "./pages/ArticleListPage";
 import MyArticleListPage from './pages/MyArticleListPage';
 import Footer from './components/Footer';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="/news" element={<ArticleListPage />} />
         <Route path="/articles" element={<MyArticleListPage />} />
         <Route path="/articles/:articleId" element={<MyArticleDetailsPage />} />

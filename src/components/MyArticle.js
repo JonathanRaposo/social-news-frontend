@@ -5,7 +5,7 @@ import { FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 
@@ -17,6 +17,7 @@ const MyArticle = ({ article, refreshArticles }) => {
 
 
     const deleteArticle = () => {
+        window.confirm('Do you want to permanently delete this article from your profile?')
 
         axios
             .delete(
@@ -34,7 +35,7 @@ const MyArticle = ({ article, refreshArticles }) => {
 
 
     return (
-        <div className={"article-wrapper " + theme}>
+        <div className={"article-wrapper " + theme} key={article?._id}>
             <a href={article?.url} target="_blank" rel="noreferrer">
                 <div>
                     <img src={article?.image} alt="article pic" />

@@ -5,7 +5,7 @@ import Feed from '../components/Feed';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 const FeedListPage = () => {
     const [myArticles, setMyArticles] = useState([]);
@@ -40,9 +40,9 @@ const FeedListPage = () => {
 
     return (
         <div className={"FeedListPage " + theme}>
-            <h3 className="my-feed-heading">My feed</h3>
+            <h3 className="my-feed-heading">Feed</h3>
             {myArticles.map((article) => {
-                return <Feed article={article} refreshArticles={getAllArticles} />
+                return <Feed key={article._id} article={article} refreshArticles={getAllArticles} />
 
             })}
 

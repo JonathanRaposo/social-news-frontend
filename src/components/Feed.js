@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 const Feed = ({ article, refreshArticles }) => {
@@ -13,17 +13,14 @@ const Feed = ({ article, refreshArticles }) => {
 
 
 
-
-
     const storedToken = localStorage.getItem('authToken');
-
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const requestBody = {
-            user: article?.user,
+            author: article?.user,
             content: content,
             article: article._id
         }
@@ -36,7 +33,7 @@ const Feed = ({ article, refreshArticles }) => {
 
             )
             .then((response) => {
-                console.log('comment created in database: ', response);
+                console.log('response from server: ', response);
 
                 setContent('');
                 refreshArticles();
@@ -45,6 +42,18 @@ const Feed = ({ article, refreshArticles }) => {
                 console.log(error);
             });
     }
+    // firstname.charAt(0);
+    // lastname.charAt(0)
+
+    const getInitials = (name) => {
+        return name.split(" ")
+            .map((word) => {
+                return word[0];
+            })
+            .join('');
+    }
+    const firstName = article?.user?.firstName;
+    const lastName = article?.user?.lastName;
 
     return (
 
@@ -56,9 +65,18 @@ const Feed = ({ article, refreshArticles }) => {
             </a>
 
             <div className="comments-wrapper">
-                {article.comments.map((comment) => {
+                {article?.comments?.map((comment) => {
                     return (
-                        <div>{comment.content}</div>
+                        <div key={comment._id} className="card">
+                            <div className="num-display">
+                                {getInitials(`${firstName} ${lastName}`)}
+                            </div>
+
+                            <div className="text-display">
+                                {comment?.content}
+
+                            </div>
+                        </div>
                     )
                 })}
 
@@ -66,18 +84,16 @@ const Feed = ({ article, refreshArticles }) => {
 
             <h5>Comments</h5>
             <form onSubmit={handleSubmit}>
-                <label htmlFor='content'></label>
-                <textarea
+
+                <input
                     className={theme}
                     name="content"
                     id="content"
-                    cols="30"
-                    rows="5"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
 
-                <button type="submit" className={theme}>Reply</button>
+                <button type="submit" className={theme}>Post</button>
             </form>
 
         </div>

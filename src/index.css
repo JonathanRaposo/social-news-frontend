@@ -100,7 +100,7 @@ code {
 .Navbar {
   width: 100%;
   border: 2px solid rgb(186, 186, 186);
-  box-shadow: 1px 1px 8px lightgrey;
+  box-shadow: 1px 1px 2px lightgrey;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -237,15 +237,8 @@ select:hover a {
 }
 
 
-/* comments wrapper styles */
-.comments-wrapper div {
-  word-break: break-all;
 
-}
 
-.comments-wrapper div:nth-child(odd) {
-  background-color: rgba(0, 0, 0, .05);
-}
 
 .AddArticle .no-image-para {
   text-align: center;
@@ -256,6 +249,7 @@ select:hover a {
 .AddArticle h3 {
   text-align: justify;
   padding: 8px;
+
 }
 
 .AddArticle a {
@@ -275,33 +269,52 @@ select:hover a {
 
 }
 
+.save-btn.bisque {
+  color: #fff;
+}
+
+.save-btn.light {
+  color: #fff;
+}
+
+.save-btn:hover {
+  background-color: #084b08;
+  color: #fff;
+}
+
+
+.save-btn:disabled {
+  background-color: gainsboro;
+  color: #095a09;
+}
+
+/* end of AddArticle style */
+
 /* MyArticleDetailsPage styles */
 .MyArticleDetailsPage {
   margin: 100px auto;
   padding: 20px;
 }
 
-.MyArticleDetailsPage .back-btn {
-  background-color: #084b08;
-  color: #fff;
-  padding: 8px 10px;
-  border-radius: 20px;
-  transition: background-color .15s;
-}
 
-.MyArticleDetailsPage .back-btn:hover {
-  background-color: #054005;
 
-}
-
-.MyArticleDetailsPage textarea,
-.Feed textarea {
-  padding: 4px;
+.MyArticleDetailsPage input,
+.Feed input {
+  padding: 20px;
   border: none;
   background-color: rgba(0, 0, 0, .05);
   border-radius: 10px;
   box-shadow: 0px 3px 8px lightgrey;
   outline: none;
+}
+
+.MyArticleDetailsPage input:hover,
+.Feed input:hover {
+  border: none
+}
+
+.MyArticleDetailsPage h3:hover {
+  color: #095a09;
 }
 
 .MyArticleDetailsPage button,
@@ -328,10 +341,6 @@ select:hover a {
 
 }
 
-.Feed button:hover {
-  background-color: #084b08;
-
-}
 
 /* MyArticleDetailsPage styles */
 
@@ -339,7 +348,7 @@ select:hover a {
 /* feed styles */
 .FeedListPage {
   margin-top: 100px;
-  margin-left: 100px;
+
 }
 
 .FeedListPage .my-feed-heading {
@@ -348,21 +357,16 @@ select:hover a {
 
 }
 
-/* reply button hover effects */
-.Feed .reply-btn {
-  display: none;
-  /* transition: display .15s; */
-}
 
-.Feed .comment-field:hover+.reply-btn {
-  display: block;
 
-}
-
-/* end of reply button hover effects */
 .Feed h3,
 .MyArticleDetailsPage h3 {
+  color: #000;
+}
+
+.Feed h3:hover {
   color: #095a09;
+
 }
 
 .Feed {
@@ -379,14 +383,70 @@ select:hover a {
   padding: 8px;
 }
 
+.Feed button:hover {
+  background-color: #084b08;
+
+}
 
 
 .Feed img {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
 
   border-radius: 50%;
 }
+
+/* comments wrapper styles */
+.comments-wrapper {
+  max-width: 350px;
+  margin: 2px auto;
+}
+
+.comments-wrapper div {
+  word-break: break-all;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-radius: 15px;
+  padding: 8px;
+
+}
+
+.comments-wrapper div {
+  /* background-color: rgba(0, 0, 0, .05); */
+  background-color: rgb(241, 241, 241);
+}
+
+.card {
+
+  position: relative;
+}
+
+.comments-wrapper>.card>.initials-display {
+  position: relative;
+  background: purple;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 12px;
+  border: 1px #eee solid;
+  color: #fff;
+
+}
+
+/* .num-display {
+  background: #ff6a95;
+  color: #fff;
+} */
+
+.initials-display {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+
+}
+
 
 /* end of feed styles */
 img {
@@ -414,26 +474,7 @@ h2 {
   transition: background-color .15s;
 }
 
-.save-btn.bisque {
-  color: #fff;
-}
 
-.save-btn.light {
-  color: #fff;
-}
-
-.save-btn:hover {
-  background-color: #084b08;
-  color: #fff;
-}
-
-
-.save-btn:disabled {
-  background-color: gainsboro;
-  color: #095a09;
-}
-
-/* end of AddArticle style */
 
 
 /* sign up/login form styles */
@@ -582,6 +623,225 @@ a {
 
 
 /* end about page */
+
+/* profile page styles */
+.ProfilePage .feature-wrapper {
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  margin: 30px auto 100px auto;
+  border-bottom: 1px solid rgb(207, 203, 203);
+}
+
+.ProfilePage .feature-wrapper>.photo-wrapper img {
+  width: 500px;
+  border-radius: 100px;
+  padding: 10px;
+
+}
+
+.ProfilePage .feature-wrapper>.photo-wrapper h1 {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.ProfilePage .feature-wrapper>.para-wrapper {
+  margin-top: 124px;
+}
+
+.ProfilePage .feature-wrapper>.para-wrapper h2 {
+  padding-right: 42px;
+}
+
+.ProfilePage .feature-wrapper>.para-wrapper p {
+  /* width: 500px; */
+  text-align: justify;
+  line-height: 2em;
+  letter-spacing: 2px;
+  padding-left: 50px;
+
+}
+
+.ProfilePage .info-wrapper {
+  max-width: 1000px;
+  margin: 100px auto;
+  padding: 30px;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid rgb(207, 203, 203);
+
+}
+
+.ProfilePage>.info-wrapper>form>button {
+  display: block;
+  width: 100px;
+  margin: 30px 0 30px 10px;
+  padding: 6px 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: 2px solid #1a1a20;
+  border-radius: 0.25rem;
+  transition: background-color .15s;
+}
+
+.ProfilePage>.info-wrapper>form>button:hover {
+  background-color: #1a1a20;
+  color: #fff;
+}
+
+.ProfilePage>.info-wrapper>form>.dark {
+  background-color: #fff;
+  color: #000;
+}
+
+.ProfilePage .profile-info-heading {
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.ProfilePage .info-wrapper input {
+  width: 330px;
+  padding: 12px;
+  border-radius: 1px solid rgb(113, 113, 113);
+  border-radius: 6px;
+  margin: 10px;
+  outline: none;
+  transition: border .15s
+}
+
+.ProfilePage>.info-wrapper>form>input>.dark {
+  background-color: #000;
+}
+
+.ProfilePage .info-wrapper input:hover {
+  border: 1px solid #000;
+}
+
+.ProfilePage .info-wrapper label {
+  width: 90px;
+  font-weight: 500;
+  padding-left: 10px;
+}
+
+.ProfilePage>.info-wrapper .email-label {
+  width: 70px;
+  padding: 0;
+}
+
+.ProfilePage>.info-wrapper .password-label {
+  width: 82px;
+
+}
+
+.ProfilePage>.info-wrapper>.photo-wrapper {
+  margin-top: -26px;
+
+}
+
+.ProfilePage>.info-wrapper>.photo-wrapper img {
+  width: 300px;
+  padding: 10px;
+
+}
+
+.ProfilePage>.password-wrapper {
+  display: flex;
+  max-width: 1000px;
+  padding: 30px;
+  /* margin: 60px 0 100px 142px; */
+  margin: 60px auto;
+  border-bottom: 1px solid rgb(207, 203, 203);
+
+}
+
+.ProfilePage>.password-wrapper input {
+  width: 330px;
+  padding: 12px;
+  border-radius: 1px solid rgb(113, 113, 113);
+  border-radius: 6px;
+  margin: 10px 45px 100px 10px;
+  outline: none;
+  transition: border .15s;
+}
+
+.ProfilePage>.password-wrapper label {
+  width: 100px;
+  padding-left: 80px;
+
+  display: inline-block;
+  font-weight: 500;
+}
+
+.ProfilePage>.password-wrapper button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border: 2px solid #1a1a20;
+  border-radius: 0.25rem;
+  transition: background-color .15s;
+}
+
+.ProfilePage>.password-wrapper button:hover {
+  background-color: #1a1a20;
+  color: #fff;
+}
+
+
+.ProfilePage>.password-wrapper>div>.dark {
+  background-color: #fff;
+  color: #000;
+}
+
+.ProfilePage>.delete-wrapper {
+  max-width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 30px;
+  margin: 60px auto;
+}
+
+.ProfilePage>.delete-wrapper>div {
+  padding: 20px;
+}
+
+.ProfilePage>.delete-wrapper>div>p {
+  font-weight: 500;
+  padding-left: 80px;
+}
+
+.ProfilePage>.delete-wrapper>div>button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border: 2px solid #1a1a20;
+  border-radius: 0.25rem;
+  transition: background-color .15s;
+}
+
+.ProfilePage>.delete-wrapper>div>button:hover {
+  background-color: #1a1a20;
+  color: #fff;
+}
+
+
+.ProfilePage>.delete-wrapper>div>.dark {
+  background-color: #fff;
+  color: #000;
+}
+
+.ProfilePage .delete-message {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  color: rgb(90, 90, 157)
+}
+
 
 /* Home Page Styles */
 
@@ -751,6 +1011,8 @@ a {
   margin-left: 5px;
   text-align: left;
   transition: background-color .15s;
+
+
 }
 
 .article-wrapper h3:hover {
