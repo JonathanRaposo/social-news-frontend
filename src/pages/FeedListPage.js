@@ -5,7 +5,7 @@ import Feed from '../components/Feed';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 const FeedListPage = () => {
     const [myArticles, setMyArticles] = useState([]);

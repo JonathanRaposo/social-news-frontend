@@ -4,7 +4,7 @@ import axios from 'axios';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 const Feed = ({ article, refreshArticles }) => {
@@ -12,17 +12,19 @@ const Feed = ({ article, refreshArticles }) => {
     const { theme } = useContext(AuthContext);
 
 
-
     const storedToken = localStorage.getItem('authToken');
+    console.log('this is one article info: ', article?.user?.firstName)
+    console.log('this is the author id: ', article?.user?._id)
+
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
         const requestBody = {
-            author: article?.user,
+            author: article?.user?._id,
             content: content,
-            article: article._id
+            article: article?._id
         }
 
         axios
@@ -33,7 +35,7 @@ const Feed = ({ article, refreshArticles }) => {
 
             )
             .then((response) => {
-                console.log('response from server: ', response);
+                console.log('comment created in database: ', response);
 
                 setContent('');
                 refreshArticles();
@@ -42,18 +44,18 @@ const Feed = ({ article, refreshArticles }) => {
                 console.log(error);
             });
     }
-    // firstname.charAt(0);
-    // lastname.charAt(0)
-
+    // function to get just the full name initials
     const getInitials = (name) => {
         return name.split(" ")
             .map((word) => {
                 return word[0];
             })
-            .join('');
+            .join('').toUpperCase();
     }
+
+
     const firstName = article?.user?.firstName;
-    const lastName = article?.user?.lastName;
+    const lastName = article?.user?.lastName
 
     return (
 
@@ -64,11 +66,12 @@ const Feed = ({ article, refreshArticles }) => {
                 <h3>{article?.name}</h3>
             </a>
 
+
             <div className="comments-wrapper">
                 {article?.comments?.map((comment) => {
                     return (
                         <div key={comment._id} className="card">
-                            <div className="num-display">
+                            <div className="initials-display">
                                 {getInitials(`${firstName} ${lastName}`)}
                             </div>
 
@@ -82,9 +85,10 @@ const Feed = ({ article, refreshArticles }) => {
 
             </div>
 
+
             <h5>Comments</h5>
             <form onSubmit={handleSubmit}>
-
+                <label htmlFor='content'></label>
                 <input
                     className={theme}
                     name="content"
@@ -93,7 +97,7 @@ const Feed = ({ article, refreshArticles }) => {
                     onChange={(e) => setContent(e.target.value)}
                 />
 
-                <button type="submit" className={theme}>Post</button>
+                <button type="submit" className={"reply-btn " + theme}>Post</button>
             </form>
 
         </div>

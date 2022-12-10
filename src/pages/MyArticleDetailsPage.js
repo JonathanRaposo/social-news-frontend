@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { useParams, } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 const MyArticleDetailsPage = () => {
@@ -14,6 +15,7 @@ const MyArticleDetailsPage = () => {
     const [content, setContent] = useState('');
 
 
+    const navigate = useNavigate();
     const { articleId } = useParams();
     const storedToken = localStorage.getItem('authToken');
 
@@ -57,13 +59,18 @@ const MyArticleDetailsPage = () => {
             )
             .then((response) => {
                 console.log('comment created in database: ', response);
+                navigate('/feed');
                 setContent('');
+
+
+
 
 
             })
             .catch((error) => {
                 console.log(error);
             });
+
     }
 
     return (
@@ -75,7 +82,11 @@ const MyArticleDetailsPage = () => {
             </a>
             <p >{article?.description}</p>
 
-            <h5>comment</h5>
+
+
+
+
+            <h5>comments</h5>
 
             <form onSubmit={handleSubmit}>
 

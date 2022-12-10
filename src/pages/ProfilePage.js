@@ -1,27 +1,33 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-import girlWithPhone from '../assets/images/girl-with-phone.jpeg';
+// import girlWithPhone from '../assets/images/girl-with-phone.jpeg';
+import girlWithPhone from '../assets/images/girl-with-green-sweater.jpeg'
 import manReading from '../assets/images/man-reading.png'
 import axios from 'axios';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app"
+const API_URL = "http://localhost:5005"
 
 const ProfilePage = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [articles, setArticles] = useState([]);
     const [errorMessage, setErrorMessage] = useState(undefined);
-    const [deleteMessage, setDeleteMessage] = useState('');
+    const [deleteMessage, setDeleteMessage] = useState(undefined);
+    const [update, setUpdate] = useState('Update')
+    // const [updateMessage, setUpdateMessage] = useState('');
 
 
     const navigate = useNavigate();
     const { theme, user, logOutUser } = useContext(AuthContext);
     const userId = user?._id
+
+
 
 
     useEffect(() => {
@@ -34,18 +40,25 @@ const ProfilePage = () => {
             )
             .then((response) => {
                 console.log('user info from server: ', response)
-                const user = response.data;
+                const user = response?.data;
                 setFirstName(user.firstName);
                 setLastName(user.lastName);
                 setEmail(user.email);
+                setPassword(user.password)
+                setArticles(user.articles)
 
 
             })
             .catch((error) => {
+
                 console.log(error);
             });
-    }, [])
+    }, []);
 
+
+
+
+    // submit form to update account
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -65,10 +78,18 @@ const ProfilePage = () => {
 
             )
             .then((response) => {
+
                 console.log('User updated: ', response)
-                navigate('/profile');
+                // setUpdateMessage(response.data.message)
+                setUpdate('Updated');
+                setTimeout(() => {
+                    navigate('/profile');
+                }, 2000);
+
             })
             .catch((error) => {
+                const errorDescription = error.response.data.message;
+                setErrorMessage(errorDescription)
                 console.log(error);
             });
     }
@@ -88,7 +109,7 @@ const ProfilePage = () => {
                 setDeleteMessage(deletedAccount);
                 setTimeout(() => {
                     logOutUser();
-                }, 5000)
+                }, 2000)
             })
             .catch((error) => {
                 const errorDescription = error?.response?.data?.message;
@@ -148,23 +169,6 @@ const ProfilePage = () => {
                         onChange={(e) => setEmail(e.target.value)}
 
                     />
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-                    <button type="submit" className={theme}>Update</button>
-                </form>
-
-
-
-                <div className="photo-wrapper">
-                    <h3>Stay current with Social News</h3>
-                    <img src={manReading} alt="girl holding phone" />
-                </div>
-
-            </div>
-            {deleteMessage && <p className='delete-message'>{deleteMessage}</p>}
-
-            <div className="password-wrapper">
-                <form onSubmit>
                     <label htmlFor='password' className='password-label'>Password</label>
                     <input
                         className={theme}
@@ -175,12 +179,32 @@ const ProfilePage = () => {
                         onChange={(e) => setPassword(e.target.value)}
 
                     />
-                    <button type="submit" className={theme}>Change password</button>
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    {/* {updateMessage && <p className='update-message'>{updateMessage}</p>} */}
+                    <button type="submit" className={theme}>{update}</button>
                 </form>
 
-            </div>
-            <div className='delete-wrapper'>
 
+
+                <div className="photo-wrapper">
+                    <h3>Stay current with Social News</h3>
+                    <img src={manReading} alt="girl holding phone" />
+                </div>
+
+            </div>
+
+            <div className="articles-wrapper">
+                <h3>Saves</h3>
+                <Link to="/articles">
+                    <p>{articles.length} articles</p>
+
+                </Link>
+            </div>
+
+
+
+
+            <div className='delete-wrapper'>
                 <div>
                     <p>Delete my Social News account</p>
                 </div>
@@ -188,6 +212,8 @@ const ProfilePage = () => {
                 <div>
                     <button onClick={deleteAccount} className={theme}>Delete Account</button>
                 </div>
+                {deleteMessage && <p className='delete-message'>{deleteMessage}</p>}
+
             </div>
 
         </div>
@@ -203,3 +229,5 @@ const ProfilePage = () => {
 
 
 export default ProfilePage;
+
+

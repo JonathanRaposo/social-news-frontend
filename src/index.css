@@ -148,11 +148,16 @@ code {
 
 .Navbar ul li {
   text-decoration: none;
-  /* color: #000; */
   font-weight: 500;
 
 }
 
+
+.Navbar li:hover .logout-btn {
+  background-color: #084b08;
+  color: #fff;
+  cursor: pointer;
+}
 
 
 select {
@@ -166,17 +171,14 @@ select {
   transition: background-color .15s;
 }
 
-select:hover {
+
+
+.Navbar li:hover select {
   background-color: #084b08;
   color: #fff;
   cursor: pointer;
 }
 
-select:hover a {
-  background-color: #084b08;
-  color: #fff;
-  cursor: pointer;
-}
 
 .Navbar ul span {
   color: #e7132f;
@@ -216,7 +218,7 @@ select:hover a {
 /*  end of Navbar Styles */
 
 
-.ArticleListPage {
+.NewsListPage {
 
   display: flex;
   flex-wrap: wrap;
@@ -325,6 +327,7 @@ select:hover a {
   border-radius: 20px;
   padding: 3px 10px;
   margin-top: 20px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Poppins', sans-serif;
@@ -400,11 +403,21 @@ select:hover a {
 .comments-wrapper {
   max-width: 350px;
   margin: 2px auto;
+  font-size: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+
 }
+
+.comments-wrapper>.card>.dark {
+  color: #fff;
+
+}
+
 
 .comments-wrapper div {
   word-break: break-all;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   border-radius: 8px;
   border-radius: 15px;
   padding: 8px;
@@ -433,6 +446,14 @@ select:hover a {
   border: 1px #eee solid;
   color: #fff;
 
+}
+
+.comments-wrapper>.card>.text-display {
+  height: 5px;
+}
+
+.comments-wrapper>.card>.dark {
+  color: #000;
 }
 
 /* .num-display {
@@ -586,7 +607,7 @@ a {
   background-attachment: fixed;
 }
 
-.AboutPage h2 {
+.AboutPage>.hero>.about-heading {
   max-width: 150px;
   padding: 10px;
   border-radius: 20px;
@@ -594,11 +615,11 @@ a {
   margin: 0 auto;
 }
 
-.AboutPage.bisque h2 {
+.AboutPage>.hero>.about-heading.light {
   color: #fff;
 }
 
-.AboutPage.light h2 {
+.AboutPage>.hero>.about-heading.bisque {
   color: #fff;
 }
 
@@ -612,6 +633,15 @@ a {
 
 .AboutPage>.feature-wrapper>.photo-wrapper img {
   width: 400px;
+}
+
+.AboutPage>.feature-wrapper>.para-wrapper>h2 {
+  text-align: left;
+}
+
+.AboutPage>.feature-wrapper>.para-wrapper>.dark>h2 {
+  text-align: left;
+  color: #fff;
 }
 
 .AboutPage>.feature-wrapper>.para-wrapper p {
@@ -665,11 +695,27 @@ a {
 
 .ProfilePage .info-wrapper {
   max-width: 1000px;
-  margin: 100px auto;
+  margin: 100px auto 50px auto;
   padding: 30px;
   display: flex;
   justify-content: space-around;
   border-bottom: 1px solid rgb(207, 203, 203);
+
+}
+
+.ProfilePage>.info-wrapper form {
+  max-width: 450px;
+}
+
+
+.ProfilePage>.info-wrapper>form>input {
+  font-size: 1em;
+}
+
+.ProfilePage>.info-wrapper p {
+  text-align: left;
+  padding-left: 12px;
+  color: #e7132f;
 
 }
 
@@ -679,7 +725,7 @@ a {
   margin: 30px 0 30px 10px;
   padding: 6px 8px;
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   border: 2px solid #1a1a20;
   border-radius: 0.25rem;
@@ -691,34 +737,43 @@ a {
   color: #fff;
 }
 
-.ProfilePage>.info-wrapper>form>.dark {
-  background-color: #fff;
-  color: #000;
+.ProfilePage>.info-wrapper>form>button.dark {
+  background-color: rgb(0, 187, 195)
 }
+
+.ProfilePage>.info-wrapper>form>.dark {
+  background-color: #000;
+  color: #fff;
+}
+
+/* .ProfilePage>.info-wrapper>form .updated {
+  background-color: rgb(0, 187, 195);
+  color: #fff;
+} */
+
 
 .ProfilePage .profile-info-heading {
   max-width: 800px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin: 20px auto;
+  padding-right: 30px;
 }
 
 .ProfilePage .info-wrapper input {
   width: 330px;
   padding: 12px;
-  border-radius: 1px solid rgb(113, 113, 113);
+  border: 1px solid rgb(113, 113, 113);
   border-radius: 6px;
   margin: 10px;
   outline: none;
-  transition: border .15s
+
 }
 
-.ProfilePage>.info-wrapper>form>input>.dark {
-  background-color: #000;
-}
-
+/* 
 .ProfilePage .info-wrapper input:hover {
   border: 1px solid #000;
-}
+} */
 
 .ProfilePage .info-wrapper label {
   width: 90px;
@@ -747,12 +802,36 @@ a {
 
 }
 
-.ProfilePage>.password-wrapper {
+.ProfilePage>.articles-wrapper {
+  max-width: 800px;
+  margin: 30px auto;
+  padding-right: 12px;
+}
+
+.ProfilePage>.articles-wrapper h3 {
+  text-align: left;
+}
+
+.ProfilePage>.articles-wrapper p {
+  max-width: 100px;
+  font-size: 17px;
+  font-weight: 500;
+  color: #e7132f;
+  transition: text-decoration .15s;
+
+}
+
+.ProfilePage>.articles-wrapper p:hover {
+  text-decoration: underline;
+}
+
+/* .ProfilePage>.password-wrapper {
   display: flex;
   max-width: 1000px;
   padding: 30px;
-  /* margin: 60px 0 100px 142px; */
-  margin: 60px auto;
+ margin: 60px 0 100px 142px; 
+   margin: 60px auto; 
+  margin: 60px auto 30px auto;
   border-bottom: 1px solid rgb(207, 203, 203);
 
 }
@@ -760,24 +839,26 @@ a {
 .ProfilePage>.password-wrapper input {
   width: 330px;
   padding: 12px;
-  border-radius: 1px solid rgb(113, 113, 113);
+  font-size: 1em;
+  border: 1px solid rgb(113, 113, 113);
   border-radius: 6px;
   margin: 10px 45px 100px 10px;
   outline: none;
-  transition: border .15s;
+
 }
+
+
 
 .ProfilePage>.password-wrapper label {
   width: 100px;
   padding-left: 80px;
-
   display: inline-block;
   font-weight: 500;
 }
 
 .ProfilePage>.password-wrapper button {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 1em;
   font-weight: 500;
   padding: 10px 14px;
   border: 2px solid #1a1a20;
@@ -788,13 +869,13 @@ a {
 .ProfilePage>.password-wrapper button:hover {
   background-color: #1a1a20;
   color: #fff;
+
 }
 
 
-.ProfilePage>.password-wrapper>div>.dark {
-  background-color: #fff;
-  color: #000;
-}
+.ProfilePage>.password-wrapper button.dark {
+  background-color: rgb(0, 187, 195)
+}  */
 
 .ProfilePage>.delete-wrapper {
   max-width: 1000px;
@@ -802,7 +883,8 @@ a {
   justify-content: flex-start;
   align-items: center;
   padding: 30px;
-  margin: 60px auto;
+  /* margin: 60px auto; */
+  margin: 20px auto 60px auto;
 }
 
 .ProfilePage>.delete-wrapper>div {
@@ -816,7 +898,7 @@ a {
 
 .ProfilePage>.delete-wrapper>div>button {
   font-family: 'Poppins', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   padding: 10px 14px;
   border: 2px solid #1a1a20;
@@ -824,22 +906,28 @@ a {
   transition: background-color .15s;
 }
 
+
 .ProfilePage>.delete-wrapper>div>button:hover {
   background-color: #1a1a20;
   color: #fff;
 }
 
-
 .ProfilePage>.delete-wrapper>div>.dark {
-  background-color: #fff;
-  color: #000;
+  background-color: rgb(0, 187, 195);
 }
 
+.ProfilePage>.delete-wrapper>div>.dark:hover {
+  background-color: rgb(0, 187, 195);
+}
+
+
 .ProfilePage .delete-message {
-  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: 500;
   text-align: center;
-  color: rgb(90, 90, 157)
+  color: #e7132f;
+
 }
 
 

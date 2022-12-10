@@ -6,9 +6,9 @@ import { AuthContext } from '../context/auth.context'
 import { useContext } from 'react';
 
 
-// const API_URL = "https://pink-doubtful-hen.cyclic.app";
+// const API_URL = "http://localhost:5005";
 
-const ArticleListPage = () => {
+const NewsListPage = () => {
 
   const [articles, setArticles] = useState([]);
 
@@ -50,7 +50,7 @@ const ArticleListPage = () => {
 
   return (
 
-    <div className={'ArticleListPage ' + theme}>
+    <div className={'NewsListPage ' + theme}>
 
       {articles && articles.map((article, index) => {
         return (
@@ -64,4 +64,4 @@ const ArticleListPage = () => {
 
 }
 
-export default ArticleListPage;
+export default NewsListPage;

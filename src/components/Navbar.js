@@ -43,7 +43,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/profile">
-                Account
+                Profile
               </Link>
             </li>
 

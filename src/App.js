@@ -5,7 +5,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from "./pages/SignupPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from './pages/ProfilePage';
-import ArticleListPage from "./pages/ArticleListPage";
+import NewsListPage from "./pages/NewsListPage";
 import MyArticleListPage from './pages/MyArticleListPage';
 import Footer from './components/Footer';
 import { AuthContext } from './context/auth.context';
@@ -30,7 +30,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/news" element={<ArticleListPage />} />
+        <Route path="/news" element={<NewsListPage />} />
         <Route path="/articles" element={<MyArticleListPage />} />
         <Route path="/articles/:articleId" element={<MyArticleDetailsPage />} />
         <Route path="/feed" element={<FeedListPage />} />

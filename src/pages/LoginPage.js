@@ -6,7 +6,7 @@ import { AuthContext } from '../context/auth.context';
 
 
 //backend API
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 
 

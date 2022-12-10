@@ -3,7 +3,7 @@ import { AuthContext } from '../context/auth.context';
 import axios from 'axios';
 import MyArticle from '../components/MyArticle';
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+const API_URL = "http://localhost:5005";
 
 const MyArticleListPage = () => {
     const [myArticles, setMyArticles] = useState([]);
@@ -109,7 +109,7 @@ const MyArticleListPage = () => {
 
             <input
                 type="text"
-                placeholder="Search article..."
+                placeholder="Search article...🔍"
                 className={`search-bar ${theme}`}
                 onChange={handleSearchInput}
             />

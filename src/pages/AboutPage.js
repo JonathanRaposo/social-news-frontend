@@ -9,9 +9,9 @@ const AboutPage = () => {
     return (
         <div className={"AboutPage " + theme}>
 
-            <div className='hero'>
+            <div className="hero">
 
-                <h2>About</h2>
+                <h2 className={"about-heading " + theme}>About</h2>
             </div>
             <div className="feature-wrapper">
 
@@ -19,7 +19,8 @@ const AboutPage = () => {
                     <img src={tv} alt="television" />
                 </div>
 
-                <div className="para-wrapper " >
+                <div className={"para-wrapper " + theme} >
+                    <h2>Get the stories that you're interested in </h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate architecto labore deleniti,quo,distinctio consectetur facere culpa temporibus nulla sit sapiente dolores corrupti minima voluptates aliquiaperiamfugiat voluptatum error. Eius aliquam consequatur aperiam, esse sed nihil ipsam cum perferendis quas oditobcaecatirem incidunt eaque? A, quas nobis. Quibusdam dolor, iure expedita adipisci, fugit eum atque praesentium deleniti
                         aliquam, minima eos rerum! Alias, dicta hic placeat laudantium, consectetur id repudiandae voluptatum.</p>
                 </div>
@@ -34,6 +35,7 @@ const AboutPage = () => {
 
 
                 <div className="para-wrapper newfeed">
+                    <h2>Get the stories that you're interested in </h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate architecto labore deleniti,quo,distinctio consectetur facere culpa temporibus nulla sit sapiente dolores corrupti minima voluptates aliquiaperiamfugiat voluptatum error. Eius aliquam consequatur aperiam, esse sed nihil ipsam cum perferendis quas oditobcaecatirem incidunt eaque? A, quas nobis. Quibusdam dolor, iure expedita adipisci, fugit eum atque praesentium deleniti
                         aliquam, minima eos rerum! Alias, dicta hic placeat laudantium, consectetur id repudiandae voluptatum.</p>
                 </div>
