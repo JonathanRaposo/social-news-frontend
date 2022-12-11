@@ -61,7 +61,7 @@ const MyArticleListPage = () => {
 
             )
             .then((response) => {
-                console.log('my sorted articles in descending order: ', response.data)
+
                 setMyArticles(response.data);
             })
             .catch((error) => {
@@ -82,7 +82,7 @@ const MyArticleListPage = () => {
 
             )
             .then((response) => {
-                console.log('My sorted articles in ascending order: ', response.data)
+
                 setMyArticles(response.data);
             })
             .catch((error) => {

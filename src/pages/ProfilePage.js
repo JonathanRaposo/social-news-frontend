@@ -196,9 +196,9 @@ const ProfilePage = () => {
             <div className="articles-wrapper">
                 <h3>Saves</h3>
                 <Link to="/articles">
-                    <p>{articles.length} articles</p>
-
+                    <p>{articles?.length} articles</p>
                 </Link>
+
             </div>
 
 

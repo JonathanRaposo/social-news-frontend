@@ -29,7 +29,7 @@ const AddArticle = ({ oneArticle }) => {
       user: user._id
 
     }
-    console.log("body from client:", requestBody);
+
     const storedToken = localStorage.getItem('authToken');
 
     axios.post(

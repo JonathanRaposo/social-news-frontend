@@ -1,9 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import bookIcon from '../assets/images/bookstack.png';
-// import stylishGirl from '../assets/images/stylish-girl.jpeg';
-// import backgroundImage from '../assets/images/yellow-background.jpeg';
 import { useState } from 'react';
 
 //backend API 

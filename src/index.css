@@ -18,6 +18,7 @@ code {
 
 .App {
   text-align: center;
+  margin: 0;
 
 }
 
@@ -98,8 +99,10 @@ code {
 
 /* Navbar styles */
 .Navbar {
+  box-sizing: border-box;
   width: 100%;
-  border: 2px solid rgb(186, 186, 186);
+  border: 2px solid rgba(255, 255, 255, .6);
+  border-width: 0 0 1px;
   box-shadow: 1px 1px 2px lightgrey;
   display: flex;
   justify-content: space-between;
@@ -111,11 +114,12 @@ code {
 }
 
 .Navbar img {
+  vertical-align: middle;
   max-width: 110px;
 }
 
-.Navbar img::before {
-  content: ' My Urls';
+.Navbar a .social-news-title {
+  font-weight: 500;
 
 }
 
@@ -223,8 +227,8 @@ select {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 1300px;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding: 30px 0;
 }
 
 /* AddArticle styles */
@@ -1133,19 +1137,40 @@ a {
 
 
 /* footer styles */
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  margin: 0;
+}
+
+.App .wrapper.dark {
+  background-color: #000;
+}
+
+.wrapper {
+  min-height: 100%;
+  /* background-color: #000; */
+
+  margin-bottom: -252px;
+}
+
+.footer,
+.push {
+  height: 252px;
+}
 
 footer {
+  box-sizing: border-box;
   width: 100%;
-  border: 2px solid rgb(186, 186, 186);
+  flex-direction: column;
+  border: 2px solid rgba(194, 191, 191, 0.6);
+  box-shadow: 1px 1px 2px lightgrey;
+  border-width: 1px 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: absolute;
-  bottom: 0;
-  height: 100px; */
-  /* position: fixed;
-  bottom: 0;
-  height: 100px; */
 
 
 }
@@ -1164,6 +1189,15 @@ footer ul li {
 
 }
 
+footer.dark .social-media-icons-wrapper .icon {
+  color: #6e6ec4
+}
+
+footer.dark .social-media-icons-wrapper .icon:hover {
+  color: #9494de
+}
+
+
 footer ul li:hover {
   text-decoration: underline;
 }
@@ -1172,11 +1206,11 @@ footer ul li a {
   color: #1a1a1a;
 }
 
-footer ul .social-media-icons-wrapper {
+footer .social-media-icons-wrapper {
   margin-top: 10px;
 }
 
-footer ul .social-media-icons-wrapper .icon {
+footer .social-media-icons-wrapper .icon {
   font-size: 2em;
   color: #06066f;
   padding: 10px;
@@ -1184,11 +1218,11 @@ footer ul .social-media-icons-wrapper .icon {
   transition: background-color .15s;
 }
 
-footer ul .social-media-icons-wrapper .icon:hover {
+footer .social-media-icons-wrapper .icon:hover {
   color: #1717ce;
 }
 
-footer ul .social-media-icons-wrapper p {
+footer .social-media-icons-wrapper p {
   text-align: center;
 }
 

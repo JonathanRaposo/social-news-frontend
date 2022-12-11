@@ -1,3 +1,4 @@
+
 import { AuthContext } from '../context/auth.context';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom'
@@ -19,6 +20,7 @@ const Navbar = () => {
     <nav className={"Navbar " + theme}>
       <Link to="/">
         <img src={logo} alt="logo icon" />
+        <span className='social-news-title'>Social News</span>
 
       </Link>
       <ul>
@@ -33,7 +35,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link to="/feed">
-                Feed
+                Discussions
               </Link>
             </li>
             <li>
@@ -46,8 +48,6 @@ const Navbar = () => {
                 Profile
               </Link>
             </li>
-
-
 
             <li>
               <button onClick={logOutUser} className={"logout-btn " + theme}>Log out</button>

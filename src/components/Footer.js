@@ -25,23 +25,24 @@ const Footer = () => {
                     <Link>Support</Link>
                 </li>
 
-                <div className={"social-media-icons-wrapper " + theme}>
-                    <a href="https://instagram.com">
-                        <FaInstagram className="icon" />
 
-                    </a>
-
-                    <a href="https://facebook.com">
-                        <FaFacebook className="icon" />
-                    </a>
-
-                    <a href="https://twitter.com">
-                        <FaTwitter className="icon" />
-
-                    </a>
-                    <p> &copy; {currentYear} Social News, inc. All rights reserved</p>
-                </div>
             </ul>
+            <div className={"social-media-icons-wrapper " + theme}>
+                <a href="https://instagram.com">
+                    <FaInstagram className="icon" />
+
+                </a>
+
+                <a href="https://facebook.com">
+                    <FaFacebook className="icon" />
+                </a>
+
+                <a href="https://twitter.com">
+                    <FaTwitter className="icon" />
+
+                </a>
+                <p> &copy; {currentYear} Raposo, Inc. All rights reserved</p>
+            </div>
 
         </footer>
     );

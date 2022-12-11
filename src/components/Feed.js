@@ -9,12 +9,11 @@ const API_URL = "http://localhost:5005";
 
 const Feed = ({ article, refreshArticles }) => {
     const [content, setContent] = useState('');
-    const { theme } = useContext(AuthContext);
-
+    const { theme, user } = useContext(AuthContext);
+    console.log('current user: ', user)
 
     const storedToken = localStorage.getItem('authToken');
-    console.log('this is one article info: ', article?.user?.firstName)
-    console.log('this is the author id: ', article?.user?._id)
+
 
 
 
@@ -22,7 +21,8 @@ const Feed = ({ article, refreshArticles }) => {
         e.preventDefault()
 
         const requestBody = {
-            author: article?.user?._id,
+            // author: article?.user?._id,
+            author: user._id,
             content: content,
             article: article?._id
         }
@@ -52,10 +52,10 @@ const Feed = ({ article, refreshArticles }) => {
             })
             .join('').toUpperCase();
     }
+    console.log('author', article.comments.author)
 
+    // this is for posting comments
 
-    const firstName = article?.user?.firstName;
-    const lastName = article?.user?.lastName
 
     return (
 
@@ -69,7 +69,10 @@ const Feed = ({ article, refreshArticles }) => {
 
             <div className="comments-wrapper">
                 {article?.comments?.map((comment) => {
+                    const firstName = comment?.author?.firstName;
+                    const lastName = comment?.author?.lastName;
                     return (
+
                         <div key={comment._id} className="card">
                             <div className="initials-display">
                                 {getInitials(`${firstName} ${lastName}`)}
