@@ -8,7 +8,7 @@ import axios from 'axios';
 
 
 
-const API_URL = "http://localhost:5005"
+const API_URL = "https://pink-doubtful-hen.cyclic.app"
 
 const ProfilePage = () => {
     const [firstName, setFirstName] = useState("");
