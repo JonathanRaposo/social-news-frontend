@@ -38,7 +38,7 @@ function LoginPage() {
                 navigate('/news')
             })
             .catch((error) => {
-                const errorDescription = error.response.data.message;
+                const errorDescription = error?.response?.data?.message;
                 setErrorMessage(errorDescription);
             })
     }
