@@ -5,7 +5,8 @@ import moment from 'moment';
 
 
 
-const API_URL = "https://pink-doubtful-hen.cyclic.app";
+
+const API_URL = "http://localhost:5005";
 
 
 const Feed = ({ article, refreshArticles }) => {
@@ -22,7 +23,7 @@ const Feed = ({ article, refreshArticles }) => {
         e.preventDefault()
 
         const requestBody = {
-            // author: article?.user?._id,
+
             author: user._id,
             content: content,
             article: article?._id
@@ -53,9 +54,8 @@ const Feed = ({ article, refreshArticles }) => {
             })
             .join('').toUpperCase();
     }
-    console.log('author', article.comments[1]?.author)
+    // console.log('author', article.comments[0].author)
 
-    // this is for posting comments
 
 
     return (
@@ -70,6 +70,7 @@ const Feed = ({ article, refreshArticles }) => {
 
             <div className="comments-wrapper">
                 {article?.comments?.map((comment) => {
+
                     const firstName = comment?.author?.firstName;
                     const lastName = comment?.author?.lastName;
                     const date = comment?.createdAt;
@@ -77,15 +78,18 @@ const Feed = ({ article, refreshArticles }) => {
                     return (
 
                         <div key={comment?._id} className="card">
-                            <div className="initials-display">
-                                {getInitials(`${firstName} ${lastName}`)}
+                            <div className="initials-wrapper">
+                                <div className="initials-display">
+                                    {getInitials(`${firstName} ${lastName}`)}
+                                </div>
                             </div>
 
-                            <div className={"text-display " + theme}>
-                                {comment?.content}
-
+                            <div className={"text-display "}>
+                                <p className="full-name">{`${firstName} ${lastName}`}</p>
+                                <p className="comment-text"> {comment?.content}</p>
                             </div>
-                            {m}
+                            <span className="show-date">{m}</span>
+
                         </div>
                     )
                 })}
