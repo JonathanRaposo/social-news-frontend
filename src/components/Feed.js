@@ -6,7 +6,7 @@ import moment from 'moment';
 
 
 
-const API_URL = "http://localhost:5005";
+const API_URL = "https://pink-doubtful-hen.cyclic.app";
 
 
 const Feed = ({ article, refreshArticles }) => {
