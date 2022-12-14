@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/auth.context";
 import axios from 'axios';
+import moment from 'moment';
 
 
 
@@ -71,6 +72,8 @@ const Feed = ({ article, refreshArticles }) => {
                 {article?.comments?.map((comment) => {
                     const firstName = comment?.author?.firstName;
                     const lastName = comment?.author?.lastName;
+                    const date = comment?.createdAt;
+                    const m = moment(date).fromNow()
                     return (
 
                         <div key={comment?._id} className="card">
@@ -82,6 +85,7 @@ const Feed = ({ article, refreshArticles }) => {
                                 {comment?.content}
 
                             </div>
+                            {m}
                         </div>
                     )
                 })}
