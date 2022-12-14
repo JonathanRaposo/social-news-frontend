@@ -11,7 +11,7 @@ const API_URL = "http://localhost:5005";
 
 const MyArticleDetailsPage = () => {
     const [article, setArticle] = useState({});
-    const { theme, } = useContext(AuthContext);
+    const { theme, user } = useContext(AuthContext);
     const [content, setContent] = useState('');
 
 
@@ -46,7 +46,7 @@ const MyArticleDetailsPage = () => {
         e.preventDefault()
 
         const requestBody = {
-            author: article?.user?._id,
+            author: user?._id,
             content: content,
             article: articleId
         }

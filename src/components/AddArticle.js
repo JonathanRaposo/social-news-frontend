@@ -7,7 +7,7 @@ const API_URL = 'http://localhost:5005';
 
 const AddArticle = ({ oneArticle }) => {
   const { theme, user } = useContext(AuthContext)
-  const [share, setShare] = useState('Share');
+  const [Save, setSave] = useState('Save');
   const [disabled, setDisabled] = useState(false);
 
   console.log('user info: ', user)
@@ -40,7 +40,7 @@ const AddArticle = ({ oneArticle }) => {
       .then((response) => {
         navigate('/news')
         setDisabled(true);
-        setShare('Shared');
+        setSave('Saved');
 
       })
       .catch((error) => {
@@ -62,7 +62,7 @@ const AddArticle = ({ oneArticle }) => {
         <h3>{oneArticle?.name}</h3>
       </a>
       <p >{oneArticle?.description}</p>
-      <button type="submit" onClick={handleSubmit} disabled={disabled} className={'save-btn ' + theme}>{share}</button>
+      <button type="submit" onClick={handleSubmit} disabled={disabled} className={'save-btn ' + theme}>{Save}</button>
     </div>
   );
 }

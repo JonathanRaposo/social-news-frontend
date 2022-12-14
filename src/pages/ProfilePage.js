@@ -2,7 +2,6 @@
 import { useNavigate, Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../context/auth.context';
-// import girlWithPhone from '../assets/images/girl-with-phone.jpeg';
 import girlWithPhone from '../assets/images/girl-with-green-sweater.jpeg'
 import manReading from '../assets/images/man-reading.png'
 import axios from 'axios';
@@ -15,12 +14,12 @@ const ProfilePage = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [password, setPassword] = useState("");
     const [articles, setArticles] = useState([]);
     const [errorMessage, setErrorMessage] = useState(undefined);
     const [deleteMessage, setDeleteMessage] = useState(undefined);
     const [update, setUpdate] = useState('Update')
-    // const [updateMessage, setUpdateMessage] = useState('');
+
 
 
     const navigate = useNavigate();
@@ -44,7 +43,7 @@ const ProfilePage = () => {
                 setFirstName(user.firstName);
                 setLastName(user.lastName);
                 setEmail(user.email);
-                setPassword(user.password)
+                // setPassword(user.password)
                 setArticles(user.articles)
 
 
@@ -66,7 +65,7 @@ const ProfilePage = () => {
             firstName,
             lastName,
             email,
-            password
+
         }
 
         const storedToken = localStorage.getItem('authToken')
@@ -169,16 +168,7 @@ const ProfilePage = () => {
                         onChange={(e) => setEmail(e.target.value)}
 
                     />
-                    <label htmlFor='password' className='password-label'>Password</label>
-                    <input
-                        className={theme}
-                        type="password"
-                        name="password"
-                        id="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
 
-                    />
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     {/* {updateMessage && <p className='update-message'>{updateMessage}</p>} */}
                     <button type="submit" className={theme}>{update}</button>

@@ -42,7 +42,7 @@ const FeedListPage = () => {
         <div className={"FeedListPage " + theme}>
             <h3 className="my-feed-heading">Discussions</h3>
             {myArticles.map((article) => {
-                return <Feed key={article._id} article={article} refreshArticles={getAllArticles} />
+                return <Feed key={article?._id} article={article} refreshArticles={getAllArticles} />
 
             })}
 

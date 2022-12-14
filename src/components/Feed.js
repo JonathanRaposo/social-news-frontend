@@ -52,7 +52,7 @@ const Feed = ({ article, refreshArticles }) => {
             })
             .join('').toUpperCase();
     }
-    console.log('author', article.comments.author)
+    console.log('author', article.comments[1]?.author)
 
     // this is for posting comments
 
@@ -73,12 +73,12 @@ const Feed = ({ article, refreshArticles }) => {
                     const lastName = comment?.author?.lastName;
                     return (
 
-                        <div key={comment._id} className="card">
+                        <div key={comment?._id} className="card">
                             <div className="initials-display">
                                 {getInitials(`${firstName} ${lastName}`)}
                             </div>
 
-                            <div className="text-display">
+                            <div className={"text-display " + theme}>
                                 {comment?.content}
 
                             </div>
