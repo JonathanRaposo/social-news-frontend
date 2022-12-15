@@ -28,16 +28,16 @@ const Footer = () => {
 
             </ul>
             <div className={"social-media-icons-wrapper " + theme}>
-                <a href="https://instagram.com">
+                <a href="https://instagram.com" target="_blank" rel="noreferrer">
                     <FaInstagram className="icon" />
 
                 </a>
 
-                <a href="https://facebook.com">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer">
                     <FaFacebook className="icon" />
                 </a>
 
-                <a href="https://twitter.com">
+                <a href="https://twitter.com" target="_blank" rel="noreferrer">
                     <FaTwitter className="icon" />
 
                 </a>
