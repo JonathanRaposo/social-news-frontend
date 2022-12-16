@@ -2,7 +2,7 @@ import { AuthContext } from '../context/auth.context';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import planet from '../assets/images/planet.jpeg'
+import city from '../assets/images/newyork-city.jpeg'
 
 const API_URL = 'https://pink-doubtful-hen.cyclic.app';
 
@@ -57,8 +57,7 @@ const AddArticle = ({ oneArticle }) => {
     <div className={'AddArticle ' + theme}>
 
       {image && <img src={oneArticle?.image?.thumbnail?.contentUrl} alt="oneArticle" />}
-      {/* {!image && <p className="no-image-para">No thumbnail available</p>} */}
-      {!image && <img src={planet} alt="default-pic" />}
+      {!image && <img src={city} alt="default-pic" />}
 
       <a href={oneArticle?.url} target="_blank" rel="noreferrer">
         <h3>{oneArticle?.name}</h3>
