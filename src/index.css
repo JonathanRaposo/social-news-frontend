@@ -1191,6 +1191,8 @@ footer {
 footer ul {
   margin-top: 40px;
   margin-bottom: 40px;
+  padding: 0;
+  padding-right: 30px;
 }
 
 footer ul li {

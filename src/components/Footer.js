@@ -18,12 +18,12 @@ const Footer = () => {
                 <li>
                     <Link to="/about">About</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to="/about">Contact</Link>
                 </li>
                 <li>
                     <Link>Support</Link>
-                </li>
+                </li> */}
 
 
             </ul>
