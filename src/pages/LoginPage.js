@@ -53,6 +53,7 @@ function LoginPage() {
                     type="email"
                     name="email"
                     value={email}
+                    autofocus
                     onChange={(e) => setEmail(e.target.value)}
                 />
 

@@ -144,6 +144,7 @@ const ProfilePage = () => {
                         name="firstName"
                         id="firstName"
                         value={firstName}
+                        autofocus
                         onChange={(e) => setFirstName(e.target.value)}
 
                     />

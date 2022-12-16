@@ -465,6 +465,7 @@ select {
 .card .text-display .comment-text {
   margin-top: 5px;
   word-break: break-all;
+  color: #000;
 
 }
 
