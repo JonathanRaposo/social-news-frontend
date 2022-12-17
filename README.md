@@ -8,3 +8,6 @@ Furthermore, another social feature of this app is that it provides is the abili
 
 
 <img width="1424" alt="Screen Shot 2022-12-14 at 3 59 21 PM" src="https://user-images.githubusercontent.com/67019470/208224803-fc0da57e-98d1-4bbf-92fc-81e2cb10f87c.png">
+
+
+Social News Website Link:  https://socialnews.netlify.app/
