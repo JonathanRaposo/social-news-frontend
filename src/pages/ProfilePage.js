@@ -5,6 +5,7 @@ import { AuthContext } from '../context/auth.context';
 import girlWithPhone from '../assets/images/girl-with-green-sweater.jpeg'
 import manReading from '../assets/images/man-reading.png'
 import axios from 'axios';
+import { FaWindows } from 'react-icons/fa';
 
 
 
@@ -67,7 +68,9 @@ const ProfilePage = () => {
             email,
 
         }
-
+        const getUser = () => {
+            window.location.reload(false);
+        }
         const storedToken = localStorage.getItem('authToken')
         axios
             .put(
@@ -82,7 +85,7 @@ const ProfilePage = () => {
                 // setUpdateMessage(response.data.message)
                 setUpdate('Updated');
                 setTimeout(() => {
-                    navigate('/profile');
+                    getUser();
                 }, 2000);
 
             })
