@@ -28,7 +28,9 @@ const ProfilePage = () => {
     const userId = user?._id
 
 
-
+    const getUser = () => {
+        window.location.reload(false);
+    }
 
     useEffect(() => {
         const storedToken = localStorage.getItem('authToken');
@@ -68,9 +70,7 @@ const ProfilePage = () => {
             email,
 
         }
-        const getUser = () => {
-            window.location.reload(false);
-        }
+
         const storedToken = localStorage.getItem('authToken')
         axios
             .put(
@@ -85,7 +85,7 @@ const ProfilePage = () => {
                 // setUpdateMessage(response.data.message)
                 setUpdate('Updated');
                 setTimeout(() => {
-                    getUser();
+                    navigate('/profile');
                 }, 2000);
 
             })
