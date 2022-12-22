@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth.context';
 import girlWithPhone from '../assets/images/girl-with-green-sweater.jpeg'
 import manReading from '../assets/images/man-reading.png'
 import axios from 'axios';
-import { FaWindows } from 'react-icons/fa';
+
 
 
 
@@ -28,9 +28,7 @@ const ProfilePage = () => {
     const userId = user?._id
 
 
-    const getUser = () => {
-        window.location.reload(false);
-    }
+
 
     useEffect(() => {
         const storedToken = localStorage.getItem('authToken');
