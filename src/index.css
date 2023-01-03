@@ -49,7 +49,7 @@ code {
 .light li,
 .light ul,
 .light h3 {
-  color: inherit;
+  color: #000;
 }
 
 .dark {
@@ -146,8 +146,7 @@ code {
 }
 
 
-
-.Navbar ul li:hover {
+.Navbar ul li:hover a {
   background-color: #084b08;
   color: #fff;
 }
@@ -467,7 +466,10 @@ select {
   word-break: break-all;
   color: #000;
 
+
 }
+
+
 
 .comments-wrapper>.card>.dark {
   color: #000;
@@ -1109,7 +1111,6 @@ a {
   width: 250px
 }
 
-
 .MyArticleListPage .article-wrapper h3 {
   max-width: 500px;
   padding: 10px;
@@ -1192,8 +1193,8 @@ footer {
 footer ul {
   margin-top: 40px;
   margin-bottom: 40px;
-  padding: 0;
-  padding-right: 30px;
+
+
 }
 
 footer ul li {
