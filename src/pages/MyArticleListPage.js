@@ -8,14 +8,13 @@ const API_URL = "https://pink-doubtful-hen.cyclic.app";
 const MyArticleListPage = () => {
     const [myArticles, setMyArticles] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [buttonOne, setButtonOne] = useState('show-btn-1');
-    const [buttonTwo, setButtonTwo] = useState('hide-btn');
+    const [show, setShow] = useState(true);
 
 
     const { theme, } = useContext(AuthContext);
 
 
-    const getAllArticles = () => {
+    const getAllArticles = (string) => {
 
 
         // get token from locaStorage
@@ -23,7 +22,7 @@ const MyArticleListPage = () => {
 
         axios
             .get(
-                `${API_URL}/api/articles`,
+                `${API_URL}/api/articles?sort=${string}`,
                 { headers: { Authorization: `Bearer ${storedToken}` } }
 
             )
@@ -46,64 +45,22 @@ const MyArticleListPage = () => {
         setSearchTerm(e.target.value)
     }
     const filteredArticle = myArticles.filter((value) => {
-        return searchTerm === '' || value.name.toLowerCase().includes(searchTerm.toLowerCase());
+        return value.name.toLowerCase().includes(searchTerm.toLowerCase());
 
 
     })
 
-    //  calling backen API to sort articles in descending order
-    const getDescendingArticles = () => {
-        const storedToken = localStorage.getItem("authToken");
-        axios
-            .get(
-                `${API_URL}/api/articles/sort/descending`,
-                { headers: { Authorization: `Bearer ${storedToken}` } }
 
-            )
-            .then((response) => {
-
-                setMyArticles(response.data);
-            })
-            .catch((error) => {
-                console.log(error)
-            });
-    }
-
-    // calling backend API  to sort articles in ascending order
-
-    const getAscendingArticles = () => {
-
-        const storedToken = localStorage.getItem("authToken");
-
-        axios
-            .get(
-                `${API_URL}/api/articles/sort/ascending`,
-                { headers: { Authorization: `Bearer ${storedToken}` } }
-
-            )
-            .then((response) => {
-
-                setMyArticles(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }
 
     //  handler functions to sort articles and also change button styles
 
-    const handleButtonOne = () => {
-        setButtonOne('hide-btn');
-        setButtonTwo('show-btn-2');
-        getDescendingArticles();
+    const handleButton = (descending) => {
+
+        setShow(!show);
+        getAllArticles(descending)
     }
 
-    const handleButtonTwo = () => {
-        setButtonTwo('hide-btn');
-        setButtonOne('show-btn-1');
-        getAscendingArticles();
 
-    }
     return (
         <div className={"MyArticleListPage " + theme}>
 
@@ -114,15 +71,15 @@ const MyArticleListPage = () => {
                 onChange={handleSearchInput}
             />
             <button
-                onClick={handleButtonOne}
-                className={`${buttonOne} ${theme}`}>
+                onClick={() => handleButton(true)}
+                className={show ? 'show-btn' : 'hide-btn'}>
                 Newest ⬇
 
             </button>
 
             <button
-                onClick={handleButtonTwo}
-                className={`${buttonTwo} ${theme}`}>
+                onClick={() => handleButton(false)}
+                className={show ? 'hide-btn' : 'show-btn'}>
                 Oldest ⬆
             </button>
 

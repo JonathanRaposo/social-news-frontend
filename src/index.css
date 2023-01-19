@@ -1080,17 +1080,21 @@ a {
   margin: 10px;
   border: none;
   width: 80px;
+  border-radius: 10px;
   font-weight: 500;
   font-family: 'Poppins', sans-serif;
 }
 
-.MyArticleListPage .show-btn-1 {
+.MyArticleListPage .show-btn {
+  display: inline-block;
+  background-color: purple;
+  color: #fff;
+}
+
+.MyArticleListPage .show-btn {
   display: inline-block;
 }
 
-.MyArticleListPage .show-btn-2 {
-  display: inline-block;
-}
 
 .MyArticleListPage .hide-btn {
   display: none;
