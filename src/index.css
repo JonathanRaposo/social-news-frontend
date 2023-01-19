@@ -1089,6 +1089,11 @@ a {
   display: inline-block;
   background-color: purple;
   color: #fff;
+  transition: background-color .15s;
+}
+
+.MyArticleListPage .show-btn:hover {
+  background-color: #530753;
 }
 
 .MyArticleListPage .show-btn {
