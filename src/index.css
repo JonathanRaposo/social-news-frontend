@@ -1087,6 +1087,14 @@ a {
 
 .MyArticleListPage .show-btn {
   display: inline-block;
+}
+
+
+.MyArticleListPage .hide-btn {
+  display: none;
+}
+
+.MyArticleListPage .show-btn {
   background-color: purple;
   color: #fff;
   transition: background-color .15s;
@@ -1096,14 +1104,7 @@ a {
   background-color: #610b61;
 }
 
-.MyArticleListPage .show-btn {
-  display: inline-block;
-}
 
-
-.MyArticleListPage .hide-btn {
-  display: none;
-}
 
 .MyArticleListPage .article-wrapper {
   display: flex;
